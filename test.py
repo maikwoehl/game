@@ -1,6 +1,7 @@
 # this is a test file
 
 def main():
-	pass
+	print "test"
 	
 main()
+
