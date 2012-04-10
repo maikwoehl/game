@@ -1,3 +1,13 @@
+Supported Browser:
+
+* all features
+ * opera
+* some features
+ * firefox (no html5 range tag)
+* in pending state
+ * ie
+ * chrome
+
 Now we have a techdemo in our repository. That shows you some 
 experiments with the engine/library that we use.
 
