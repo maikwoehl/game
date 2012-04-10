@@ -5,17 +5,52 @@
 <script type="text/javascript">
 window.onload = function()
 {
-    engine = new Engine();
-    engine.setCanvas(document.getElementById("game"));
-    engine.render(800,600);
+    // Construct
+    engine = new Engine(); // new object
     
-    engine.setBackgroundColor("lightgreen");
-    engine.writeLogo("blue","50px",100,200);
+    engine.setCanvas(document.getElementById("game")); // set canvas element
+    engine.setAudio(document.getElementById('music')); // set audio element
+    
+    engine.renderCanvas(800,600); // render canvas
+    engine.renderAudio("assets/audio/soundtrack-example.ogg"); // render audio
+    
+    // Main
+    engine.setBackgroundColor("lightgreen"); // set background color
+    engine.writeLogo("blue","25px",30,60); // write a logo in the canvas
+    
+    engine.setAudioVolume(0.3); // 30% audio volume 
+    document.getElementById("music-volume").value = engine.getElement("audio").volume; // Display Audio Volume
+        
+    engine.getElement("canvas").addEventListener('click', function() {
+        engine.getElement("audio").play(); // play on canvas-click
+    });
+    
+    window.onkeydown = function (event) {
+        console.log("Keycode:"+event.which); // Key Logger
+        if (event.which==27) { engine.getElement("audio").pause(); }; // Pause on ESC
+    };
+    
+    volumeEntry = document.getElementById("music-volume"); // Volume Range Setter
+    volumeEntry.addEventListener('keydown', function(event) { // click on volumeBtn
+        if (event.which == 13) {
+            engine.getElement("audio").volume = parseFloat(volumeEntry.value); // set new audio value
+            //volumeEntry.value = engine.getElement("audio").volume; // load new audio value into volumeEntry
+        }
+    });
+    
+    logo = new Image();
+    logo.src = "assets/images/logos/logo-das.png";
+    engine.getElement("context").drawImage(logo,-100,20);
+    
 }
 </script>
 </head>
 <body>
 <h1>Techdemo</h1>
+<i>Type number(0.0-1.0) and hit [Enter]. Hit ESC to stop music.</i>
+<input type="number" id="music-volume" min="0.0" max="1.0" step="0.1" />
+<br />
 <canvas id="game"></canvas>
+<audio id="music" type="audio/ogg"></audio>
 </body>
 </html>
