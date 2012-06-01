@@ -1,0 +1,46 @@
+\documentclass[14pt]{book}
+\usepackage{graphicx}
+\usepackage{ngerman}
+\usepackage[latin1]{inputenc}
+
+\title{Game Description (german)}
+\author{Maik W"ohl}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter*{Vorwort}
+
+Ich habe noch keinen Namen f"ur dieses Spiel aber ich habe mir mal gedacht ein HTML5 Rollenspiel zu basteln, dass eine isometrische 2D Grafik bietet. Nat"urlich, dachte ich, brauche ich daf"ur auch eine Engine oder eher JS-Bibliothek die mir da einiges an Schreibarbeit sp"ater abnimmt und habe viel gesucht und leider nur den Polyfill \emph{flashcanvas} gefunden, der aber v"ollig in Ordnung ist. Das hei"st f"ur mich, dass ich die Engine selber schreiben muss.
+
+Ich habe mir auch schon f"ur die Spielumsetzung einiges ausgedacht. Aber dazu sp"ater mehr. Ich habe zum Beispiel schon ein Logo f"ur meine GitHub Organisation \textbf{DaemonArtStudios}. Hier ist es:
+
+\includegraphics{logo-das-small}
+
+\part{Vorstellung}
+
+\chapter{Spielidee}
+
+Dieses Spiel soll kein MMORPG werden, das hei"st es beherrscht nur einen Einzelspieler-Modus. Der Kamerawinkel auf das Geschehen sollte in einem Winkel wie in \emph{Pokemon} oder \emph{Secret of Mana} auch benutzt wird, eingestellt sein. Man wird direkt in das Geschehen reingeworfen, eiskalt. Das hei"st man muss sich die Steuerung selber aneignen, und das tut man, indem Hinweisboxen zur jeweiligen Situation auftauchen und einem helfen. Sollte man diese nicht mehr ben"otigen, kann man diese auch abschalten.
+
+Da das ganze im Einzelspieler-Modus gehalten ist, muss die Story packend sein, weil beim Multiplayer die anderen Spieler und die Gemeinschaft auch eine Rolle spielen, wie lange sich der Benutzer mit dem Spiel besch"aftigt.
+
+Wechselkurse f"ur Geld und andere "ahnliche Dinge und auch die Verkaufwerte von Gegenst"anden sollen zentral geregelt werden und mit jedem Spielstart aktualisiert werden. 
+ 
+
+\chapter{Spielumsetzung}
+
+Dieses Spiel wird ein Browser-Spiel werden, was die neue Technologien verwendet. Diese sind also folgend im Namen HTML5 zusammengefasst. Man wird wegen der Inkompatiblit"at zu "alteren Browsern einen Polyfill einsetzen m"ussen, der \emph{flashcanvas} hei"st und von \emph{html5please.com} empfohlen ist.
+
+Das Spiel wird keinen Server ben"otigen, deswegen werden alle  zeitkritischen Daten wie die aktuellen Wechselkurse f"ur das Geld nicht im \emph{ApplicationCache} vorgehalten und bei jedem Spielstart aktualisiert. Das ist sehr ungew"ohnlich f"ur ein Einzelspieler RPG, aber das macht grade den Reiz aus, der dem Spieler vermittelt werden soll. Aktuelle reale Wechselkurse f"ur das Geld und f"ur jeden Spieler gleiche Verkaufswerte in Markthallen und bei H"andlern.
+
+Vielleicht wird auch ein Server implementiert, der alle Daten synchronisiert und wenn sich der Spieler bei einem anderen Computer einloggt sollen die Daten wie Inventar und Bankinhalt auf den Computer transferiert werden. Das steht aber noch nicht fest und ist auch ein optionales Feature. Als andere L"osung k"onnte man auch ein Export-Format entwickeln, dass es einem erm"oglicht alle relevanten Daten zu exportieren und diese \emph{Benutzerprofil} wieder zu importieren.
+
+
+\part{Detaillierte Beschreibung}
+
+\end{document} 
+
