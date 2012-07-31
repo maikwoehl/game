@@ -1,76 +1,78 @@
-var canvas;
-var context;
-var audio;
-var video;
 var Engine = function() {};
 Engine.prototype = {
+	init : function() {
+		this.canvas = "";
+		this.context = "";
+		this.audio = "";
+		this.video = "";
+	},
     getElement : function(element) {
         if (element == "canvas")
         {
-            return canvas;
+            return this.canvas;
         }
         else if (element == "context")
         {
-            return context;
+            return this.context;
         }
         else if (element == "audio")
         {
-            return audio;
+            return this.audio;
         }
         else if (element == "video")
         {
-        	return video;
+        	return this.video;
         }
         else {
             return 0;
         }
     },
     setCanvas : function(given_canvas) {
-        canvas = given_canvas;
+        this.canvas = given_canvas;
         try {
-            context = given_canvas.getContext('2d');
+            this.context = given_canvas.getContext('2d');
         }
         catch (err) {
             console.log("Error through: "+err.message);
         }
     },
     setAudio: function(given_audio) {
-        audio = given_audio;
+        this.audio = given_audio;
     },
     setVideo: function(given_video)  {
-    	video = given_video;
+    	this.video = given_video;
     },
     renderCanvas : function(width,height) {
-        canvas.setAttribute("width", width);
-        canvas.setAttribute("height", height);
+        this.canvas.setAttribute("width", width);
+        this.canvas.setAttribute("height", height);
     },
     renderAudio : function(audiofile, format) {
-        audio.setAttribute("src", audiofile);
-        audio.setAttribute("type", format);
+        this.audio.setAttribute("src", audiofile);
+        this.audio.setAttribute("type", format);
     },
     renderVideo: function(videofile,format) {
-    	video.setAttribute("src", videofile);
-    	video.setAttribute("type", format);
+    	this.video.setAttribute("src", videofile);
+    	this.video.setAttribute("type", format);
     },
     writeLogo : function(color,size,posx,posy) {
-        context.fillStyle = color;
-        context.font = size+" Arial";
-        context.fillText("DaemonTutorials",posx,posy);
+        this.context.fillStyle = color;
+        this.context.font = size+" Arial";
+        this.context.fillText("DaemonTutorials",posx,posy);
     },
     setBackgroundColor : function (color) {
-        context.fillStyle = color;
-        context.fillRect(0,0,canvas.width,canvas.height);
+        this.context.fillStyle = color;
+        this.context.fillRect(0,0,canvas.width,canvas.height);
     },
     setAudioVolume : function (volume) {
-        audio.volume = volume;
+        this.audio.volume = volume;
     },
     setVideoControls : function (controls) {
     	if (controls == true)
-    		{
-    			video.setAttribute("controls", "controls");
-    		}
+    	{
+    		this.video.setAttribute("controls", "controls");
+    	}
     	else {
-    		video.setAttribute("controls", "none");
+    		this.video.setAttribute("controls", "none");
     	}
     }
 };

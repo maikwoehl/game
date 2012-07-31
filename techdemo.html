@@ -8,6 +8,7 @@ window.onload = function()
 {
     // Construct
     engine = new Engine(); // new object
+    engine.init(); // INIT Engine
     
     engine.setCanvas(document.getElementById("game")); // set canvas element
     engine.setAudio(document.getElementById('music')); // set audio element
