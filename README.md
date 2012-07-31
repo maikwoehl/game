@@ -24,4 +24,7 @@ Features in Techdemo:
  * an image
 * Video
 
-A new soundtrack demo - Yeah!
+== Team ==
+ * daemonTutorials (Maik - Developer)
+ * pierew (Piere - Assistant)
+ * Reeloop (Graphics and Sound)
