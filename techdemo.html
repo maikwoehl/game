@@ -68,6 +68,9 @@ window.onload = function()
         	engine.clearCanvas();
         	generateMap1_2(engine);
         	break;
+        case 71:
+        	engine.addGrid();
+        	break;
         }
     };
     
@@ -90,7 +93,8 @@ window.onload = function()
 <h1>Techdemo</h1>
 <i>Hit with your left mouse button into the canvas to start music. Type number(0.0-1.0) and hit [Enter]. Hit ESC to stop music.</i>
 <input type="number" id="music-volume" min="0.0" max="1.0" step="0.1" /><br />
-Try to hit the numbers 0-2 on your Number-Row above the letters. See what happens ;-)
+Try to hit the numbers 0-2 on your Number-Row above the letters. See what happens ;-) And if you press [G] you can overlay a grid to see 
+the tiles.
 <br />
 <canvas id="game"></canvas>
 <audio id="music"></audio>

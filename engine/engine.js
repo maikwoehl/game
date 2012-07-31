@@ -116,4 +116,15 @@ Engine.prototype = {
     	tile.src = "assets/images/tiles/"+name+".png";
     	context.drawImage(tile,this.tileSize[0]*pos[0],this.tileSize[1]*pos[1]);
     },
+    addGrid : function ()
+    {
+    	for (x = 0; x < 15; x++)
+    	{
+    		for (y = 0; y < 15; y++)
+    		{
+    			context.strokeStyle = "white";
+    			context.strokeRect(this.tileSize[0]*x,this.tileSize[1]*y, this.tileSize[0], this.tileSize[1]);
+    		}	
+    	}
+    },
 };
