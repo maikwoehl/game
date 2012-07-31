@@ -17,14 +17,13 @@ Engine.prototype = {
 		case "video":
 			this.video = object;
 		case "map":
-			this.map = [];
-			mapSize = object;
+			this.mapSize = object;
 			// Canvas Size
 			canvasWidth = this.canvas.getAttribute("width");
 			canvasHeight = this.canvas.getAttribute("height");
 			
-			tileWidth = canvasWidth / mapSize;
-			tileHeight = canvasHeight / mapSize;
+			tileWidth = canvasWidth / this.mapSize;
+			tileHeight = canvasHeight / this.mapSize;
 			
 			this.tileSize = [tileWidth,tileHeight];
 			
@@ -41,8 +40,6 @@ Engine.prototype = {
         	return this.audio;
         case "video":
         	return this.video;
-        case "map":
-        	return this.map;
         case "tileSize":
         	return this.tileSize;
         }
@@ -74,10 +71,10 @@ Engine.prototype = {
     	this.video.setAttribute("src", videofile);
     	this.video.setAttribute("type", format);
     },
-    writeLogo : function(color,size,posx,posy) {
+    writeText : function(text,font,color,size,posx,posy) {
         context.fillStyle = color;
-        context.font = size+" Arial";
-        context.fillText("DaemonTutorials",posx,posy);
+        context.font = size+" "+font;
+        context.fillText(text,posx,posy);
     },
     setBackgroundColor : function (color) {
         context.fillStyle = color;
@@ -100,6 +97,13 @@ Engine.prototype = {
     	case "grass":
     		context.fillStyle = "green";
     		context.fillRect(this.tileSize[0]*pos[0],this.tileSize[1]*pos[1], this.tileSize[0], this.tileSize[1]);
+    	
     	}
+    	
+    	tile = new Image();
+    	tile.src = "assets/images/tiles/"+name+".png";
+    	tile.width = 37.5;
+    	tile.height = 37.5;
+    	context.drawImage(tile,this.tileSize[0]*pos[0],this.tileSize[1]*pos[1]);
     },
 };

@@ -3,6 +3,7 @@
 <title>Techdemo</title>
 <script src="engine/engine.js" type="text/javascript"></script>
 <script src="engine/browserdetect.js" type="text/javascript"></script>
+<script src="engine/map.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function()
 {
@@ -13,7 +14,7 @@ window.onload = function()
     engine.init("audio",document.getElementById('music')); // set audio element
     engine.init("video",document.getElementById("video")); // set video element
     
-    engine.renderCanvas(600,600); // render canvas
+    engine.renderCanvas(480,480); // render canvas
     engine.renderAudio("assets/audio/soundtrack-example.ogg", "audio/ogg"); // render audio
     
     if (BrowserDetect.browser == "Opera")
@@ -24,15 +25,16 @@ window.onload = function()
     	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
     }
     
-    engine.init("map", 16); // set map quad size
+    engine.init("map", 15); // set map quad size
     
     
     // Main
-    engine.setBackgroundColor("lightgreen"); // set background color
-    engine.writeLogo("blue","25px",30,60); // write a logo in the canvas
+    engine.setBackgroundColor("black"); // set background color
+    // engine.writeText("DaemonTutorials", "Arial","blue","25px",30,60); // write a logo in the canvas
     
-    engine.addTile("grass", [14,1]); // Test Tile
-    engine.addTile("grass", [0,13]); // Test Tile 2
+    // Generate Map
+    
+    generateMap(engine);
     
     engine.setAudioVolume(0.3); // 30% audio volume 
     document.getElementById("music-volume").value = engine.get("audio").volume; // Display Audio Volume
@@ -57,10 +59,10 @@ window.onload = function()
             //volumeEntry.value = engine.get("audio").volume; // load new audio value into volumeEntry
         }
     });
-    
+    /*
     logo = new Image();
     logo.src = "assets/images/logos/logo-das.png";
-    engine.get("context").drawImage(logo,-100,20);
+    engine.get("context").drawImage(logo,-100,20); */
     
 }
 </script>
