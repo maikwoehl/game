@@ -1,10 +1,22 @@
+var context;
 var Engine = function() {};
 Engine.prototype = {
-	init : function() {
-		this.canvas = "";
-		this.context = "";
-		this.audio = "";
-		this.video = "";
+	init : function(type,object) {
+		switch(type)
+		{
+		case "canvas":
+			this.canvas = object;
+			try {
+	            context = this.canvas.getContext('2d');
+	        }
+	        catch (err) {
+	            console.log("Error through: "+err.message);
+	        }
+		case "audio":
+			this.audio = object;
+		case "video":
+			this.video = object;
+		}
 	},
     getElement : function(element) {
         if (element == "canvas")
@@ -13,7 +25,7 @@ Engine.prototype = {
         }
         else if (element == "context")
         {
-            return this.context;
+            return context;
         }
         else if (element == "audio")
         {
@@ -30,7 +42,7 @@ Engine.prototype = {
     setCanvas : function(given_canvas) {
         this.canvas = given_canvas;
         try {
-            this.context = given_canvas.getContext('2d');
+            context = given_canvas.getContext('2d');
         }
         catch (err) {
             console.log("Error through: "+err.message);
@@ -55,13 +67,13 @@ Engine.prototype = {
     	this.video.setAttribute("type", format);
     },
     writeLogo : function(color,size,posx,posy) {
-        this.context.fillStyle = color;
-        this.context.font = size+" Arial";
-        this.context.fillText("DaemonTutorials",posx,posy);
+        context.fillStyle = color;
+        context.font = size+" Arial";
+        context.fillText("DaemonTutorials",posx,posy);
     },
     setBackgroundColor : function (color) {
-        this.context.fillStyle = color;
-        this.context.fillRect(0,0,canvas.width,canvas.height);
+        context.fillStyle = color;
+        context.fillRect(0,0,this.canvas.width,this.canvas.height);
     },
     setAudioVolume : function (volume) {
         this.audio.volume = volume;

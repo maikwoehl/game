@@ -8,11 +8,15 @@ window.onload = function()
 {
     // Construct
     engine = new Engine(); // new object
-    engine.init(); // INIT Engine
     
+    /*
     engine.setCanvas(document.getElementById("game")); // set canvas element
     engine.setAudio(document.getElementById('music')); // set audio element
-    engine.setVideo(document.getElementById("video")); // set video element
+    engine.setVideo(document.getElementById("video")); // set video element */
+    
+    engine.init("canvas",document.getElementById("game")); // set canvas element
+    engine.init("audio",document.getElementById('music')); // set audio element
+    engine.init("video",document.getElementById("video")); // set video element
     
     engine.renderCanvas(800,600); // render canvas
     engine.renderAudio("assets/audio/soundtrack-example.ogg", "audio/ogg"); // render audio
