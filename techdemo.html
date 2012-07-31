@@ -2,6 +2,7 @@
 <head>
 <title>Techdemo</title>
 <script src="engine/engine.js" type="text/javascript"></script>
+<script src="engine/browserdetect.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function()
 {
@@ -10,10 +11,18 @@ window.onload = function()
     
     engine.setCanvas(document.getElementById("game")); // set canvas element
     engine.setAudio(document.getElementById('music')); // set audio element
+    engine.setVideo(document.getElementById("video")); // set video element
     
     engine.renderCanvas(800,600); // render canvas
-    engine.renderAudio("assets/audio/soundtrack-example.ogg"); // render audio
+    engine.renderAudio("assets/audio/soundtrack-example.ogg", "audio/ogg"); // render audio
     
+    if (BrowserDetect.browser == "Opera")
+    {
+    	engine.renderVideo("assets/video/html5video.ogv", "video/ogg"); // render video
+    }
+    else {
+    	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
+    }
     // Main
     engine.setBackgroundColor("lightgreen"); // set background color
     engine.writeLogo("blue","25px",30,60); // write a logo in the canvas
@@ -21,6 +30,10 @@ window.onload = function()
     engine.setAudioVolume(0.3); // 30% audio volume 
     document.getElementById("music-volume").value = engine.getElement("audio").volume; // Display Audio Volume
         
+    engine.setVideoControls(true); // Display Video Controls
+    engine.getElement("video").setAttribute("width", 200);
+    engine.getElement("video").setAttribute("height", 150);
+    
     engine.getElement("canvas").addEventListener('click', function() {
         engine.getElement("audio").play(); // play on canvas-click
     });
@@ -51,6 +64,7 @@ window.onload = function()
 <input type="number" id="music-volume" min="0.0" max="1.0" step="0.1" />
 <br />
 <canvas id="game"></canvas>
-<audio id="music" type="audio/ogg"></audio>
+<audio id="music"></audio>
+<video id="video"></video>
 </body>
 </html>

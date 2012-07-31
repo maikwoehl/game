@@ -1,6 +1,7 @@
 var canvas;
 var context;
 var audio;
+var video;
 var Engine = function() {};
 Engine.prototype = {
     getElement : function(element) {
@@ -16,6 +17,10 @@ Engine.prototype = {
         {
             return audio;
         }
+        else if (element == "video")
+        {
+        	return video;
+        }
         else {
             return 0;
         }
@@ -26,18 +31,26 @@ Engine.prototype = {
             context = given_canvas.getContext('2d');
         }
         catch (err) {
-            console.log("Error through: "+err.message)
+            console.log("Error through: "+err.message);
         }
     },
     setAudio: function(given_audio) {
         audio = given_audio;
     },
-    renderCanvas : function(width,height) {
-        canvas.setAttribute("width", width)
-        canvas.setAttribute("height", height)
+    setVideo: function(given_video)  {
+    	video = given_video;
     },
-    renderAudio : function(audiofile) {
+    renderCanvas : function(width,height) {
+        canvas.setAttribute("width", width);
+        canvas.setAttribute("height", height);
+    },
+    renderAudio : function(audiofile, format) {
         audio.setAttribute("src", audiofile);
+        audio.setAttribute("type", format);
+    },
+    renderVideo: function(videofile,format) {
+    	video.setAttribute("src", videofile);
+    	video.setAttribute("type", format);
     },
     writeLogo : function(color,size,posx,posy) {
         context.fillStyle = color;
@@ -46,9 +59,18 @@ Engine.prototype = {
     },
     setBackgroundColor : function (color) {
         context.fillStyle = color;
-        context.fillRect(0,0,canvas.width,canvas.height)
+        context.fillRect(0,0,canvas.width,canvas.height);
     },
     setAudioVolume : function (volume) {
         audio.volume = volume;
     },
+    setVideoControls : function (controls) {
+    	if (controls == true)
+    		{
+    			video.setAttribute("controls", "controls");
+    		}
+    	else {
+    		video.setAttribute("controls", "none");
+    	}
+    }
 };
