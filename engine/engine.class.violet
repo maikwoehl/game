@@ -5,21 +5,25 @@
    <object class="com.horstmann.violet.ClassNode">
     <void property="attributes">
      <void property="text">
-      <string>var canvas
-var context
-var audio</string>
+      <string>this.canvas
+this.audio
+this.video</string>
      </void>
     </void>
     <void property="methods">
      <void property="text">
-      <string>getElement(var element)
-setCanvas(var given_canvas)
-setAudio(var given_audio)
-renderCanvas(var width, var height)
-renderAudio(var audiofile)
-writeLogo(var color, var size, var posx, var posy)
-setBackgroundColor(var color)
-setAudioVolume(var volume)</string>
+      <string>init(string type, object object)
+getElement(object element)
+setCanvas(object given_canvas)
+setAudio(object given_audio)
+setVideo(object given_video)
+renderCanvas(int width, int height)
+renderAudio(string audiofile, string format)
+renderVideo(string videofile, string format)
+writeLogo(string color, int size, int posx, int posy)
+setBackgroundColor(string color)
+setAudioVolume(float volume)
+setVideoControls(bool controls)</string>
      </void>
     </void>
     <void property="name">
