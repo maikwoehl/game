@@ -12,10 +12,13 @@ Engine.prototype = {
 	        catch (err) {
 	            console.log("Error through: "+err.message);
 	        }
+	        break;
 		case "audio":
 			this.audio = object;
+			break;
 		case "video":
 			this.video = object;
+			break;
 		case "map":
 			this.mapSize = object;
 			// Canvas Size
@@ -28,21 +31,30 @@ Engine.prototype = {
 			this.tileSize = [tileWidth,tileHeight];
 			
 			console.log("1 quad: " + this.tileSize[0] + "x" + this.tileSize[1]);
+			break;
 		}
 	},
     get : function(val) {
         switch(val) {
         case "canvas":
         	return this.canvas;
+        	break;
         case "context":
         	return context;
+        	break;
         case "audio":
         	return this.audio;
+        	break;
         case "video":
         	return this.video;
+        	break;
         case "tileSize":
         	return this.tileSize;
+        	break;
         }
+    },
+    clearCanvas : function() {
+    	context.clearRect(0,0,this.canvas.width,this.canvas.height);
     },
     setCanvas : function(given_canvas) {
         this.canvas = given_canvas;
@@ -102,8 +114,6 @@ Engine.prototype = {
     	
     	tile = new Image();
     	tile.src = "assets/images/tiles/"+name+".png";
-    	tile.width = 37.5;
-    	tile.height = 37.5;
     	context.drawImage(tile,this.tileSize[0]*pos[0],this.tileSize[1]*pos[1]);
     },
 };

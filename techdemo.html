@@ -3,7 +3,9 @@
 <title>Techdemo</title>
 <script src="engine/engine.js" type="text/javascript"></script>
 <script src="engine/browserdetect.js" type="text/javascript"></script>
-<script src="engine/map.js" type="text/javascript"></script>
+<script src="engine/map0.js" type="text/javascript"></script>
+<script src="engine/map1_1.js" type="text/javascript"></script>
+<script src="engine/map1_2.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function()
 {
@@ -34,7 +36,7 @@ window.onload = function()
     
     // Generate Map
     
-    generateMap(engine);
+    generateMap0(engine);
     
     engine.setAudioVolume(0.3); // 30% audio volume 
     document.getElementById("music-volume").value = engine.get("audio").volume; // Display Audio Volume
@@ -49,7 +51,24 @@ window.onload = function()
     
     window.onkeydown = function (event) {
         console.log("Keycode:"+event.which); // Key Logger
-        if (event.which==27) { engine.get("audio").pause(); }; // Pause on ESC
+        //if (event.which==27) { engine.get("audio").pause(); }; // Pause on ESC
+        switch(event.which) {
+        case 27:
+        	engine.get("audio").pause();
+        	break;
+        case 48:
+        	engine.clearCanvas();
+        	generateMap0(engine);
+        	break;
+        case 49:
+        	engine.clearCanvas();
+        	generateMap1_1(engine);
+        	break;
+        case 50:
+        	engine.clearCanvas();
+        	generateMap1_2(engine);
+        	break;
+        }
     };
     
     volumeEntry = document.getElementById("music-volume"); // Volume Range Setter
@@ -70,7 +89,8 @@ window.onload = function()
 <body>
 <h1>Techdemo</h1>
 <i>Hit with your left mouse button into the canvas to start music. Type number(0.0-1.0) and hit [Enter]. Hit ESC to stop music.</i>
-<input type="number" id="music-volume" min="0.0" max="1.0" step="0.1" />
+<input type="number" id="music-volume" min="0.0" max="1.0" step="0.1" /><br />
+Try to hit the numbers 0-2 on your Number-Row above the letters. See what happens ;-)
 <br />
 <canvas id="game"></canvas>
 <audio id="music"></audio>
