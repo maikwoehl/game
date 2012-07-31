@@ -8,8 +8,8 @@
       <string>this.canvas
 this.audio
 this.video
-this.map
-this.tileSize</string>
+this.tileSize
+this.mapSize</string>
      </void>
     </void>
     <void property="methods">
