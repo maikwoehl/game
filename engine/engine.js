@@ -16,27 +16,35 @@ Engine.prototype = {
 			this.audio = object;
 		case "video":
 			this.video = object;
+		case "map":
+			this.map = [];
+			mapSize = object;
+			// Canvas Size
+			canvasWidth = this.canvas.getAttribute("width");
+			canvasHeight = this.canvas.getAttribute("height");
+			
+			tileWidth = canvasWidth / mapSize;
+			tileHeight = canvasHeight / mapSize;
+			
+			this.tileSize = [tileWidth,tileHeight];
+			
+			console.log("1 quad: " + this.tileSize[0] + "x" + this.tileSize[1]);
 		}
 	},
-    getElement : function(element) {
-        if (element == "canvas")
-        {
-            return this.canvas;
-        }
-        else if (element == "context")
-        {
-            return context;
-        }
-        else if (element == "audio")
-        {
-            return this.audio;
-        }
-        else if (element == "video")
-        {
+    get : function(val) {
+        switch(val) {
+        case "canvas":
+        	return this.canvas;
+        case "context":
+        	return context;
+        case "audio":
+        	return this.audio;
+        case "video":
         	return this.video;
-        }
-        else {
-            return 0;
+        case "map":
+        	return this.map;
+        case "tileSize":
+        	return this.tileSize;
         }
     },
     setCanvas : function(given_canvas) {
@@ -86,5 +94,12 @@ Engine.prototype = {
     	else {
     		this.video.setAttribute("controls", "none");
     	}
-    }
+    },
+    addTile : function (name,pos) {
+    	switch(name) {
+    	case "grass":
+    		context.fillStyle = "green";
+    		context.fillRect(this.tileSize[0]*pos[0],this.tileSize[1]*pos[1], this.tileSize[0], this.tileSize[1]);
+    	}
+    },
 };

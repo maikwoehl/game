@@ -9,16 +9,11 @@ window.onload = function()
     // Construct
     engine = new Engine(); // new object
     
-    /*
-    engine.setCanvas(document.getElementById("game")); // set canvas element
-    engine.setAudio(document.getElementById('music')); // set audio element
-    engine.setVideo(document.getElementById("video")); // set video element */
-    
     engine.init("canvas",document.getElementById("game")); // set canvas element
     engine.init("audio",document.getElementById('music')); // set audio element
     engine.init("video",document.getElementById("video")); // set video element
     
-    engine.renderCanvas(800,600); // render canvas
+    engine.renderCanvas(600,600); // render canvas
     engine.renderAudio("assets/audio/soundtrack-example.ogg", "audio/ogg"); // render audio
     
     if (BrowserDetect.browser == "Opera")
@@ -28,37 +23,44 @@ window.onload = function()
     else {
     	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
     }
+    
+    engine.init("map", 16); // set map quad size
+    
+    
     // Main
     engine.setBackgroundColor("lightgreen"); // set background color
     engine.writeLogo("blue","25px",30,60); // write a logo in the canvas
     
+    engine.addTile("grass", [14,1]); // Test Tile
+    engine.addTile("grass", [0,13]); // Test Tile 2
+    
     engine.setAudioVolume(0.3); // 30% audio volume 
-    document.getElementById("music-volume").value = engine.getElement("audio").volume; // Display Audio Volume
+    document.getElementById("music-volume").value = engine.get("audio").volume; // Display Audio Volume
         
     engine.setVideoControls(true); // Display Video Controls
-    engine.getElement("video").setAttribute("width", 200);
-    engine.getElement("video").setAttribute("height", 150);
+    engine.get("video").setAttribute("width", 200);
+    engine.get("video").setAttribute("height", 150);
     
-    engine.getElement("canvas").addEventListener('click', function() {
-        engine.getElement("audio").play(); // play on canvas-click
+    engine.get("canvas").addEventListener('click', function() {
+        engine.get("audio").play(); // play on canvas-click
     });
     
     window.onkeydown = function (event) {
         console.log("Keycode:"+event.which); // Key Logger
-        if (event.which==27) { engine.getElement("audio").pause(); }; // Pause on ESC
+        if (event.which==27) { engine.get("audio").pause(); }; // Pause on ESC
     };
     
     volumeEntry = document.getElementById("music-volume"); // Volume Range Setter
     volumeEntry.addEventListener('keydown', function(event) { 
         if (event.which == 13) { // Hit Enter
-            engine.getElement("audio").volume = parseFloat(volumeEntry.value); // set new audio value
-            //volumeEntry.value = engine.getElement("audio").volume; // load new audio value into volumeEntry
+            engine.get("audio").volume = parseFloat(volumeEntry.value); // set new audio value
+            //volumeEntry.value = engine.get("audio").volume; // load new audio value into volumeEntry
         }
     });
     
     logo = new Image();
     logo.src = "assets/images/logos/logo-das.png";
-    engine.getElement("context").drawImage(logo,-100,20);
+    engine.get("context").drawImage(logo,-100,20);
     
 }
 </script>

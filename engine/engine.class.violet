@@ -7,13 +7,15 @@
      <void property="text">
       <string>this.canvas
 this.audio
-this.video</string>
+this.video
+this.map
+this.tileSize</string>
      </void>
     </void>
     <void property="methods">
      <void property="text">
       <string>init(string type, object object)
-getElement(object element)
+get(string val)
 setCanvas(object given_canvas)
 setAudio(object given_audio)
 setVideo(object given_video)
@@ -23,7 +25,8 @@ renderVideo(string videofile, string format)
 writeLogo(string color, int size, int posx, int posy)
 setBackgroundColor(string color)
 setAudioVolume(float volume)
-setVideoControls(bool controls)</string>
+setVideoControls(bool controls)
+addTile(string name, int pos)</string>
      </void>
     </void>
     <void property="name">
