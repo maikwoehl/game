@@ -5,15 +5,15 @@ function generateMap1_2(map)
 	map.addTile("grass1", [1,0]);
 	map.addTile("grass1", [2,0]);
 	map.addTile("grass1", [3,0]);
-	map.addTile("grass1", [4,0]);
+	map.addTile("fence2", [4,0]);
 	
-	map.addTile("grass1", [5,0]);
-	map.addTile("grass1", [6,0]);
-	map.addTile("grass1", [7,0]);
-	map.addTile("grass1", [8,0]);
-	map.addTile("grass1", [9,0]);
+	map.addTile("grass_to_water6", [5,0]);
+	map.addTile("grass_to_water4", [6,0]);
+	map.addTile("grass_to_water4", [7,0]);
+	map.addTile("grass_to_water4", [8,0]);
+	map.addTile("grass_to_water7", [9,0]);
 	
-	map.addTile("grass1", [10,0]);
+	map.addTile("fence2", [10,0]);
 	map.addTile("grass1", [11,0]);
 	map.addTile("grass1", [12,0]);
 	map.addTile("grass1", [13,0]);
@@ -24,15 +24,15 @@ function generateMap1_2(map)
 	map.addTile("grass1", [1,1]);
 	map.addTile("grass1", [2,1]);
 	map.addTile("grass1", [3,1]);
-	map.addTile("grass1", [4,1]);
+	map.addTile("fence2", [4,1]);
 	
-	map.addTile("grass1", [5,1]);
-	map.addTile("grass1", [6,1]);
-	map.addTile("grass1", [7,1]);
-	map.addTile("grass1", [8,1]);
-	map.addTile("grass1", [9,1]);
+	map.addTile("grass_to_water2", [5,1]);
+	map.addTile("water1", [6,1]);
+	map.addTile("water1", [7,1]);
+	map.addTile("water1", [8,1]);
+	map.addTile("grass_to_water1", [9,1]);
 	
-	map.addTile("grass1", [10,1]);
+	map.addTile("fence2", [10,1]);
 	map.addTile("grass1", [11,1]);
 	map.addTile("grass1", [12,1]);
 	map.addTile("grass1", [13,1]);
@@ -43,15 +43,15 @@ function generateMap1_2(map)
 	map.addTile("grass1", [1,2]);
 	map.addTile("grass1", [2,2]);
 	map.addTile("grass1", [3,2]);
-	map.addTile("grass1", [4,2]);
+	map.addTile("fence2", [4,2]);
 	
-	map.addTile("grass1", [5,2]);
-	map.addTile("grass1", [6,2]);
-	map.addTile("grass1", [7,2]);
-	map.addTile("grass1", [8,2]);
-	map.addTile("grass1", [9,2]);
+	map.addTile("grass_to_water2", [5,2]);
+	map.addTile("water1", [6,2]);
+	map.addTile("water1", [7,2]);
+	map.addTile("water1", [8,2]);
+	map.addTile("grass_to_water1", [9,2]);
 	
-	map.addTile("grass1", [10,2]);
+	map.addTile("fence2", [10,2]);
 	map.addTile("grass1", [11,2]);
 	map.addTile("grass1", [12,2]);
 	map.addTile("grass1", [13,2]);
@@ -62,15 +62,15 @@ function generateMap1_2(map)
 	map.addTile("grass1", [1,3]);
 	map.addTile("grass1", [2,3]);
 	map.addTile("grass1", [3,3]);
-	map.addTile("grass1", [4,3]);
+	map.addTile("fence2", [4,3]);
 	
-	map.addTile("grass1", [5,3]);
-	map.addTile("dirt_to_grass_11", [6,3]);
-	map.addTile("dirt_to_grass_8", [7,3]);
-	map.addTile("dirt_to_grass_12", [8,3]);
-	map.addTile("grass1", [9,3]);
+	map.addTile("grass_to_water5", [5,3]);
+	map.addTile("grass_to_water3", [6,3]);
+	map.addTile("grass_to_water3", [7,3]);
+	map.addTile("grass_to_water3", [8,3]);
+	map.addTile("grass_to_water8", [9,3]);
 	
-	map.addTile("grass1", [10,3]);
+	map.addTile("fence2", [10,3]);
 	map.addTile("grass1", [11,3]);
 	map.addTile("grass1", [12,3]);
 	map.addTile("grass1", [13,3]);
@@ -81,18 +81,18 @@ function generateMap1_2(map)
 	map.addTile("grass1", [1,4]);
 	map.addTile("grass1", [2,4]);
 	map.addTile("grass1", [3,4]);
-	map.addTile("grass1", [4,4]);
+	map.addTile("fence_corner_left1", [4,4]);
 	
-	map.addTile("grass1", [5,4]);
-	map.addTile("dirt_to_grass_6", [6,4]);
-	map.addTile("dirt1", [7,4]);
-	map.addTile("dirt_to_grass_1", [8,4]);
-	map.addTile("grass1", [9,4]);
+	map.addTile("fence1", [5,4]);
+	map.addTile("dirt_to_grass_11", [6,4]);
+	map.addTile("dirt_to_grass_8", [7,4]);
+	map.addTile("dirt_to_grass_12", [8,4]);
+	map.addTile("fence1", [9,4]);
 	
-	map.addTile("grass1", [10,4]);
+	map.addTile("fence_corner_right1", [10,4]);
 	map.addTile("grass1", [11,4]);
 	map.addTile("grass1", [12,4]);
-	map.addTile("grass1", [13,4]);
+	map.addTile("flowers2", [13,4]);
 	map.addTile("grass1", [14,4]);
 	
 	// Row 6
@@ -148,7 +148,7 @@ function generateMap1_2(map)
 	
 	map.addTile("dirt1", [10,7]);
 	map.addTile("dirt1", [11,7]);
-	map.addTile("dirt1", [12,7]);
+	map.addTile("dirt2", [12,7]);
 	map.addTile("dirt1", [13,7]);
 	map.addTile("dirt1", [14,7]);
 	
@@ -220,7 +220,7 @@ function generateMap1_2(map)
 	map.addTile("dirt1", [6,11]);
 	map.addTile("dirt1", [7,11]);
 	map.addTile("dirt1", [8,11]);
-	map.addTile("dirt1", [9,11]);
+	map.addTile("dirt3", [9,11]);
 	
 	map.addTile("dirt_to_grass_1", [10,11]);
 	map.addTile("grass1", [11,11]);
@@ -250,13 +250,13 @@ function generateMap1_2(map)
 	// Row 13
 	map.addTile("grass1", [0,13]);
 	map.addTile("grass1", [1,13]);
-	map.addTile("grass1", [2,13]);
+	map.addTile("flowers1", [2,13]);
 	map.addTile("grass1", [3,13]);
 	map.addTile("dirt_to_grass_6", [4,13]);
 	
 	map.addTile("dirt1", [5,13]);
 	map.addTile("dirt1", [6,13]);
-	map.addTile("dirt1", [7,13]);
+	map.addTile("dirt3", [7,13]);
 	map.addTile("dirt1", [8,13]);
 	map.addTile("dirt1", [9,13]);
 	
