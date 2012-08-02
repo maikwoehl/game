@@ -19,12 +19,12 @@ window.onload = function()
     engine.renderCanvas(480,480); // render canvas
     engine.renderAudio("assets/audio/soundtrack-example.ogg", "audio/ogg"); // render audio
     
-    if (BrowserDetect.browser == "Opera")
+    if (BrowserDetect.browser == "Safari")
     {
-    	engine.renderVideo("assets/video/html5video.ogv", "video/ogg"); // render video
+    	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
     }
     else {
-    	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
+    	engine.renderVideo("assets/video/html5video.ogv", "video/ogg"); // render video
     }
     
     engine.init("map", 15); // set map quad size
