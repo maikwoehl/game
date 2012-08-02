@@ -47,7 +47,7 @@ function generateMap1_2(map)
 	
 	map.addTile("grass_to_water2", [5,2]);
 	map.addTile("water1", [6,2]);
-	map.addTile("water1", [7,2]);
+	map.addTile("water_flowers1", [7,2]);
 	map.addTile("water1", [8,2]);
 	map.addTile("grass_to_water1", [9,2]);
 	

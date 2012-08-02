@@ -1,48 +1,48 @@
 function generateMap0(map)
 {
 	// Row 1
-	map.addTile("grass1", [0,0]);
-	map.addTile("grass1", [1,0]);
-	map.addTile("grass1", [2,0]);
-	map.addTile("grass1", [3,0]);
-	map.addTile("grass1", [4,0]);
+	map.addTile("dirt_flower1", [0,0]);
+	map.addTile("dirt_to_grass_1", [1,0]);
+	map.addTile("dirt_to_grass_2", [2,0]);
+	map.addTile("dirt_to_grass_3", [3,0]);
+	map.addTile("dirt_to_grass_4", [4,0]);
 	
-	map.addTile("grass1", [5,0]);
-	map.addTile("grass1", [6,0]);
-	map.addTile("grass1", [7,0]);
-	map.addTile("grass1", [8,0]);
-	map.addTile("grass1", [9,0]);
+	map.addTile("dirt_to_grass_5", [5,0]);
+	map.addTile("dirt_to_grass_6", [6,0]);
+	map.addTile("dirt_to_grass_7", [7,0]);
+	map.addTile("dirt_to_grass_8", [8,0]);
+	map.addTile("dirt_to_grass_9", [9,0]);
 	
-	map.addTile("grass1", [10,0]);
-	map.addTile("grass1", [11,0]);
-	map.addTile("grass1", [12,0]);
-	map.addTile("grass1", [13,0]);
-	map.addTile("grass1", [14,0]);
+	map.addTile("dirt_to_grass_10", [10,0]);
+	map.addTile("dirt_to_grass_11", [11,0]);
+	map.addTile("dirt_to_grass_12", [12,0]);
+	map.addTile("dirt1", [13,0]);
+	map.addTile("dirt2", [14,0]);
 	
 	// Row 2
-	map.addTile("grass1", [0,1]);
-	map.addTile("grass1", [1,1]);
-	map.addTile("grass1", [2,1]);
-	map.addTile("grass1", [3,1]);
-	map.addTile("grass1", [4,1]);
+	map.addTile("dirt3", [0,1]);
+	map.addTile("fence_corner_left1", [1,1]);
+	map.addTile("fence_corner_right1", [2,1]);
+	map.addTile("fence1", [3,1]);
+	map.addTile("fence2", [4,1]);
 	
-	map.addTile("grass1", [5,1]);
-	map.addTile("grass1", [6,1]);
-	map.addTile("grass1", [7,1]);
-	map.addTile("grass1", [8,1]);
-	map.addTile("grass1", [9,1]);
+	map.addTile("flowers1", [5,1]);
+	map.addTile("flowers2", [6,1]);
+	map.addTile("grass_to_water1", [7,1]);
+	map.addTile("grass_to_water2", [8,1]);
+	map.addTile("grass_to_water3", [9,1]);
 	
-	map.addTile("grass1", [10,1]);
-	map.addTile("grass1", [11,1]);
-	map.addTile("grass1", [12,1]);
-	map.addTile("grass1", [13,1]);
-	map.addTile("grass1", [14,1]);
+	map.addTile("grass_to_water4", [10,1]);
+	map.addTile("grass_to_water5", [11,1]);
+	map.addTile("grass_to_water6", [12,1]);
+	map.addTile("grass_to_water7", [13,1]);
+	map.addTile("grass_to_water8", [14,1]);
 	
 	// Row 3
 	map.addTile("grass1", [0,2]);
-	map.addTile("grass1", [1,2]);
-	map.addTile("grass1", [2,2]);
-	map.addTile("grass1", [3,2]);
+	map.addTile("grass2", [1,2]);
+	map.addTile("water_flowers1", [2,2]);
+	map.addTile("water1", [3,2]);
 	map.addTile("grass1", [4,2]);
 	
 	map.addTile("grass1", [5,2]);

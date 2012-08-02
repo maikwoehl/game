@@ -55,6 +55,7 @@ Engine.prototype = {
     },
     clearCanvas : function() {
     	context.clearRect(0,0,this.canvas.width,this.canvas.height);
+    	this.setBackgroundColor("black");
     },
     setCanvas : function(given_canvas) {
         this.canvas = given_canvas;
@@ -118,6 +119,8 @@ Engine.prototype = {
     },
     addGrid : function ()
     {
+    	var x;
+    	var y;
     	for (x = 0; x < 15; x++)
     	{
     		for (y = 0; y < 15; y++)
