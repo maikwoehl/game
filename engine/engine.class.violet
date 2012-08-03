@@ -20,6 +20,8 @@ this.mapSize</string>
     <void property="methods">
      <void property="text">
       <string>init(string type, object object)
+saveState()
+loadState()
 get(string val)
 clearCanvas()
 setCanvas(object given_canvas)
