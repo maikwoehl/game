@@ -1,6 +1,9 @@
 var context;
-var Engine = function() {};
-Engine.prototype = {
+var GameEngine = function(doc) {
+	this.document = doc;
+	
+};
+GameEngine.prototype = {
 	init : function(type,object) {
 		switch(type)
 		{
@@ -33,6 +36,7 @@ Engine.prototype = {
 			console.log("1 quad: " + this.tileSize[0] + "x" + this.tileSize[1]);
 			break;
 		}
+		return true;
 	},
     get : function(val) {
         switch(val) {
@@ -52,10 +56,12 @@ Engine.prototype = {
         	return this.tileSize;
         	break;
         }
+        return true;
     },
     clearCanvas : function() {
     	context.clearRect(0,0,this.canvas.width,this.canvas.height);
     	this.setBackgroundColor("black");
+    	return true;
     },
     setCanvas : function(given_canvas) {
         this.canvas = given_canvas;
@@ -65,36 +71,55 @@ Engine.prototype = {
         catch (err) {
             console.log("Error through: "+err.message);
         }
+        return true;
     },
     setAudio: function(given_audio) {
         this.audio = given_audio;
+        return true;
     },
     setVideo: function(given_video)  {
     	this.video = given_video;
+    	return true;
     },
     renderCanvas : function(width,height) {
         this.canvas.setAttribute("width", width);
         this.canvas.setAttribute("height", height);
+        return true;
     },
     renderAudio : function(audiofile, format) {
         this.audio.setAttribute("src", audiofile);
         this.audio.setAttribute("type", format);
+        return true;
     },
     renderVideo: function(videofile,format) {
     	this.video.setAttribute("src", videofile);
     	this.video.setAttribute("type", format);
+    	return true;
     },
     writeText : function(text,font,color,size,posx,posy) {
         context.fillStyle = color;
         context.font = size+" "+font;
         context.fillText(text,posx,posy);
+        return true;
     },
     setBackgroundColor : function (color) {
         context.fillStyle = color;
         context.fillRect(0,0,this.canvas.width,this.canvas.height);
+        return true;
     },
     setAudioVolume : function (volume) {
         this.audio.volume = volume;
+        return true;
+    },
+    setAudioControls : function (controls) {
+    	if (controls == true)
+    	{
+    		this.audio.setAttribute("controls", "controls");
+    	}
+    	else {
+    		this.audio.setAttribute("controls", "none");
+    	}
+    	return true;
     },
     setVideoControls : function (controls) {
     	if (controls == true)
@@ -104,6 +129,7 @@ Engine.prototype = {
     	else {
     		this.video.setAttribute("controls", "none");
     	}
+    	return true;
     },
     addTile : function (name,pos) {
     	switch(name) {
@@ -116,6 +142,7 @@ Engine.prototype = {
     	tile = new Image();
     	tile.src = "assets/images/tiles/"+name+".png";
     	context.drawImage(tile,this.tileSize[0]*pos[0],this.tileSize[1]*pos[1]);
+    	return true;
     },
     addGrid : function ()
     {
@@ -129,5 +156,59 @@ Engine.prototype = {
     			context.strokeRect(this.tileSize[0]*x,this.tileSize[1]*y, this.tileSize[0], this.tileSize[1]);
     		}	
     	}
+    	return true;
     },
+    initMap : function (map)
+    {	
+    	newScript = this.document.createElement("script");
+    	this.document.getElementsByTagName("head")[0].appendChild(newScript);
+    	newScript.type = "text/javascript";
+    	newScript.src = "assets/maps/"+map+".js";
+    	return true;
+    },
+    setMap : function(map) {
+    	this.currentMap = map;
+    	return true;
+    },
+    getMap : function() {
+    	return this.currentMap;
+    },
+    loadMap : function(map) {
+    	switch(map) {
+    	case "map0":
+    		generateMap0(this);
+    		break;
+    	case "map1_1":
+    		generateMap1_1(this);
+    		break;
+    	case "map1_2":
+    		generateMap1_2(this);
+    		break;
+    	}
+    	return true;
+    },
+    loadPlayer : function(img,posx,posy) {
+    	this.player_posx = posx;
+    	this.player_posy = posy;
+    	this.player = new Image();
+    	this.player.src = "assets/images/tiles/"+img+".png";
+    	context.drawImage(this.player,this.player_posx,this.player_posy);
+    	return true;
+    },
+    setPlayerPosX : function(posx) {
+    	this.player_posx = posx;
+    	return true;
+    },
+    setPlayerPosY : function(posy) {
+    	this.player_posy = posy;
+    	return true;
+    },
+    getPlayerPosX : function() {
+    	return this.player_posx;
+    	
+    },
+    getPlayerPosY : function() {
+    	return this.player_posy;
+    	
+    }
 };

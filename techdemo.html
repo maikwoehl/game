@@ -1,92 +1,15 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Techdemo</title>
-<meta http-equiv="charset" content="utf-8" />
+<meta charset="utf-8" />
 <script src="engine/engine.js" type="text/javascript"></script>
 <script src="engine/browserdetect.js" type="text/javascript"></script>
-<script src="engine/map0.js" type="text/javascript"></script>
-<script src="engine/map1_1.js" type="text/javascript"></script>
-<script src="engine/map1_2.js" type="text/javascript"></script>
+<script src="assets/js/techdemo.js" type="text/javascript"></script>
 <script type="text/javascript">
 window.onload = function()
 {
-    // Construct
-    engine = new Engine(); // new object
-    
-    engine.init("canvas",document.getElementById("game")); // set canvas element
-    //engine.init("audio",document.getElementById('music')); // set audio element
-    engine.init("video",document.getElementById("video")); // set video element
-    
-    engine.renderCanvas(480,480); // render canvas
-    //engine.renderAudio("assets/audio/soundtrack-example.ogg", "audio/ogg"); // render audio
-    
-    if (BrowserDetect.browser == "Safari" || BrowserDetect.browser == "Firefox")
-    {
-    	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
-    }
-    else {
-    	engine.renderVideo("assets/video/html5video.ogv", "video/ogg"); // render video
-    }
-    
-    engine.init("map", 15); // set map quad size
-    
-    
-    // Main
-    engine.setBackgroundColor("black"); // set background color
-    // engine.writeText("DaemonTutorials", "Arial","blue","25px",30,60); // write a logo in the canvas
-    
-    // Generate Map
-
-    //generateMap0(engine);
-    
-    //engine.setAudioVolume(0.3); // 30% audio volume 
-    //document.getElementById("music-volume").value = engine.get("audio").volume; // Display Audio Volume
-        
-    engine.setVideoControls(true); // Display Video Controls
-    engine.get("video").setAttribute("width", 200);
-    engine.get("video").setAttribute("height", 150);
-    
-    /* engine.get("canvas").addEventListener('click', function() {
-        engine.get("audio").play(); // play on canvas-click
-    }); */
-    
-    window.onkeydown = function (event) {
-        console.log("Keycode:"+event.which); // Key Logger
-        //if (event.which==27) { engine.get("audio").pause(); }; // Pause on ESC
-        switch(event.which) {
-        case 27:
-        	engine.get("audio").pause();
-        	break;
-        case 48:
-        	engine.clearCanvas();
-        	generateMap0(engine);
-        	break;
-        case 49:
-        	engine.clearCanvas();
-        	generateMap1_1(engine);
-        	break;
-        case 50:
-        	engine.clearCanvas();
-        	generateMap1_2(engine);
-        	break;
-        case 71:
-        	engine.addGrid();
-        	break;
-        }
-    };
-    /*
-    volumeEntry = document.getElementById("music-volume"); // Volume Range Setter
-    volumeEntry.addEventListener('keydown', function(event) { 
-        if (event.which == 13) { // Hit Enter
-            engine.get("audio").volume = parseFloat(volumeEntry.value); // set new audio value
-            //volumeEntry.value = engine.get("audio").volume; // load new audio value into volumeEntry
-        }
-    }); */
-    /*
-    logo = new Image();
-    logo.src = "assets/images/logos/logo-das.png";
-    engine.get("context").drawImage(logo,-100,20); */
-    
+	techdemo();
 }
 </script>
 </head>
@@ -95,7 +18,7 @@ window.onload = function()
 <!--<i>Hit with your left mouse button into the canvas to start music. Type number(0.0-1.0) and hit [Enter]. Hit ESC to stop music.</i>
 <input type="number" id="music-volume" min="0.0" max="1.0" step="0.1" /><br /> -->
 Try to hit the numbers 0-2 on your Number-Row above the letters. See what happens ;-) And if you press [G] you can overlay a grid to see 
-the tiles.
+the tiles. Press [P] do add a player. The standard field is Map1. If you want to change the map, you must type in <i>engine.setMap("map0")</i> or <i>engine.setMap("map1_2")</i> into the javascript console of your browser.
 <br />
 <canvas id="game"></canvas>
 <audio id="music"></audio>
