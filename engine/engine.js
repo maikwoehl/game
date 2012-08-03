@@ -38,6 +38,14 @@ GameEngine.prototype = {
 		}
 		return true;
 	},
+	saveState : function() {
+		localStorage.player_posx = this.player_posx;
+		localStorage.player_posy = this.player_posy;
+	},
+	loadState : function() {
+		this.player_posx = localStorage.player_posx;
+		this.player_posy = localStorage.player_posy;
+	},
     get : function(val) {
         switch(val) {
         case "canvas":
