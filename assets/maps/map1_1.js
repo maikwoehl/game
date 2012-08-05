@@ -1,3 +1,17 @@
+function checkPos1_1(engine)
+{
+	posx = engine.getPlayerPosX();
+	posy = engine.getPlayerPosY();
+	if (posx <= 146 && posy >= 184 && posy <= 234)
+	{
+		return true;
+	} else if (posx >= 147 && posx <= 296 && posy >= 24) {
+		return true;
+	} else if (posx >= 297 && posy >= 184 && posy <= 234) {
+		return true;
+	}
+}
+
 function generateMap1_1(map)
 {
 	// Row 1

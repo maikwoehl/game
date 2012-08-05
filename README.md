@@ -18,10 +18,11 @@ Features in Techdemo:
 * Audio
  * play and pause
  * volume changer
-* Canvas
- * a background
- * a text
- * an image
 * Video
+
+GameLogic:
+
+ * Player Actor
+ * Collision System for Map Barriers
 
 A new soundtrack demo - Yeah!

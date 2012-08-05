@@ -54,28 +54,48 @@ function techdemo() {
         	engine.loadPlayer("prototype_player",256,64);
         	break;
         case 87: // Press W
-        	posy = engine.getPlayerPosY() - 10;
+        	if (checkPos1_1(engine)) {
+        		posy = engine.getPlayerPosY() - 10;
+        	}
+        	else {
+        		posy = engine.getPlayerPosY() + 10;
+        	}
         	engine.setPlayerPosY(posy);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
         	engine.loadPlayer("prototype_player",engine.getPlayerPosX(),posy);
         	break;
         case 83: // Press S
-        	posy = engine.getPlayerPosY() + 10;
+        	if (checkPos1_1(engine)) {
+        		posy = engine.getPlayerPosY() + 10;
+        	}
+        	else {
+        		posy = engine.getPlayerPosY() -10 ;
+        	}
         	engine.setPlayerPosY(posy);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
         	engine.loadPlayer("prototype_player",engine.getPlayerPosX(),posy);
         	break;
         case 65: // Press A
-        	posx = engine.getPlayerPosX() - 10;
+        	if (checkPos1_1(engine)) {
+        		posx = engine.getPlayerPosX() - 10;
+        	}
+        	else {
+        		posx = engine.getPlayerPosX() +10 ;
+        	}
         	engine.setPlayerPosX(posx);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
         	engine.loadPlayer("prototype_player",posx,engine.getPlayerPosY());
         	break;
         case 68: // Press D
-        	posx = engine.getPlayerPosX() + 10;
+        	if (checkPos1_1(engine)) {
+        		posx = engine.getPlayerPosX() + 10;
+        	}
+        	else {
+        		posx = engine.getPlayerPosX() -10 ;
+        	}
         	engine.setPlayerPosX(posx);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
