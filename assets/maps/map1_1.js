@@ -1,7 +1,7 @@
 function checkPos1_1(engine)
 {
-	posx = engine.getPlayerPosX();
-	posy = engine.getPlayerPosY();
+	posx = engine.getPlayerPos()[0];
+	posy = engine.getPlayerPos()[1];
 	if (posx <= 146 && posy >= 184 && posy <= 234)
 	{
 		return true;

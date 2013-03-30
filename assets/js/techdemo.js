@@ -7,23 +7,25 @@ function techdemo() {
     engine.init("video",document.getElementById("video")); // set video element
     
     engine.renderCanvas(480,480); // render canvas
-    engine.renderAudio("assets/audio/soundtrack-example.ogg", "audio/ogg"); // render audio
+    engine.renderAudio(["assets/audio/soundtrack-example.ogg","assets/audio/soundtrack-example.MP3"], ["audio/ogg", "audio/mp3"]); // render audio
     engine.setAudioControls(true);
     
-    if (BrowserDetect.browser == "Safari" || BrowserDetect.browser == "Firefox")
+    /*if (BrowserDetect.browser == "Safari" || BrowserDetect.browser == "Firefox")
     {
-    	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
-    }
-    else {
     	engine.renderVideo("assets/video/html5video.ogv", "video/ogg"); // render video
     }
+    else {
+    	engine.renderVideo("assets/video/html5video.mp4", "video/mp4"); // render video
+    } */
+    engine.renderVideo(["assets/video/html5video.mp4","assets/video/html5video.ogv"],["video/mp4","video/ogg"]);
     
     engine.init("map", 15); // set map quad size
     engine.initMap("map0");
     engine.initMap("map1_1");
     engine.initMap("map1_2");
-    engine.setMap("map1_1"); // Set Player Map
-    
+    window.setTimeout(function() {
+        engine.setMap("map1_1").loadMap(); // Set Player Map
+    },500);
     // Main
     engine.setBackgroundColor("black"); // set background color
     
@@ -37,15 +39,15 @@ function techdemo() {
         switch(event.which) {
         case 48: // Press 0
         	engine.clearCanvas();
-        	generateMap0(engine);
+        	engine.setMap("map0").loadMap();
         	break;
         case 49: // Press 1
         	engine.clearCanvas();
-        	generateMap1_1(engine);
+        	engine.setMap("map1_1").loadMap();
         	break;
         case 50: // Press 2
         	engine.clearCanvas();
-        	generateMap1_2(engine);
+        	engine.setMap("map1_2").loadMap();
         	break;
         case 71: // Press G
         	engine.addGrid();
@@ -55,51 +57,51 @@ function techdemo() {
         	break;
         case 87: // Press W
         	if (checkPos1_1(engine)) {
-        		posy = engine.getPlayerPosY() - 10;
+        		posy = engine.getPlayerPos()[1] - 10;
         	}
         	else {
-        		posy = engine.getPlayerPosY() + 10;
+        		posy = engine.getPlayerPos()[1] + 10;
         	}
-        	engine.setPlayerPosY(posy);
+        	engine.setPlayerPos([engine.getPlayerPos()[0],posy]);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
-        	engine.loadPlayer("prototype_player",engine.getPlayerPosX(),posy);
+        	engine.loadPlayer("prototype_player",engine.getPlayerPos()[0],posy);
         	break;
         case 83: // Press S
         	if (checkPos1_1(engine)) {
-        		posy = engine.getPlayerPosY() + 10;
+        		posy = engine.getPlayerPos()[1] + 10;
         	}
         	else {
-        		posy = engine.getPlayerPosY() -10 ;
+        		posy = engine.getPlayerPos()[1] -10 ;
         	}
-        	engine.setPlayerPosY(posy);
+        	engine.setPlayerPos([engine.getPlayerPos()[0],posy]);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
-        	engine.loadPlayer("prototype_player",engine.getPlayerPosX(),posy);
+        	engine.loadPlayer("prototype_player",engine.getPlayerPos()[0],posy);
         	break;
         case 65: // Press A
         	if (checkPos1_1(engine)) {
-        		posx = engine.getPlayerPosX() - 10;
+        		posx = engine.getPlayerPos()[0] - 10;
         	}
         	else {
-        		posx = engine.getPlayerPosX() +10 ;
+        		posx = engine.getPlayerPos()[0] +10 ;
         	}
-        	engine.setPlayerPosX(posx);
+        	engine.setPlayerPos([posx,engine.getPlayerPos()[1]]);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
-        	engine.loadPlayer("prototype_player",posx,engine.getPlayerPosY());
+        	engine.loadPlayer("prototype_player",posx,engine.getPlayerPos()[1]);
         	break;
         case 68: // Press D
         	if (checkPos1_1(engine)) {
-        		posx = engine.getPlayerPosX() + 10;
+        		posx = engine.getPlayerPos()[0] + 10;
         	}
         	else {
-        		posx = engine.getPlayerPosX() -10 ;
+        		posx = engine.getPlayerPos()[0] -10 ;
         	}
-        	engine.setPlayerPosX(posx);
+        	engine.setPlayerPos([posx,engine.getPlayerPos()[1]]);
         	engine.clearCanvas();
         	engine.loadMap(engine.getMap());
-        	engine.loadPlayer("prototype_player",posx,engine.getPlayerPosY());
+        	engine.loadPlayer("prototype_player",posx,engine.getPlayerPos()[1]);
         	break;
         }
     };

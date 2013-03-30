@@ -19,16 +19,28 @@ window.onload = function()
 		engine.loadState();
 		engine.loadPlayer("prototype_player",engine.getPlayerPosX(),engine.getPlayerPosY());
 	});
+    document.getElementById("selectMap").addEventListener('click', function() {
+        var maps = document.getElementById("maps");
+        engine.setMap(maps.options[maps.selectedIndex].value).loadMap();
+    });
 }
 </script>
 </head>
 <body>
 <h1>Techdemo</h1>
-<!--<i>Hit with your left mouse button into the canvas to start music. Type number(0.0-1.0) and hit [Enter]. Hit ESC to stop music.</i>
-<input type="number" id="music-volume" min="0.0" max="1.0" step="0.1" /><br /> -->
 <button id="saveState">Save</button> - <button id="loadState">Load</button><br />
-Try to hit the numbers 0-2 on your Number-Row above the letters. See what happens ;-) And if you press [G] you can overlay a grid to see 
-the tiles. Press [P] do add a player. The standard field is Map1. If you want to change the map, you must type in <i>engine.setMap("map0")</i> or <i>engine.setMap("map1_2")</i> into the javascript console of your browser.
+<select id="maps">
+<option value="map0">Map0 [0]</option>
+<option value="map1_1">Map1_1 [1]</option>
+<option value="map1_2">Map1_2 [2]</option>
+</select>
+<button id="selectMap">Select Map</button><br />
+The graphics should be loaded in cache, if you open this page the first
+time or after a cache trashing. For this you select Map 0 and click on
+"Select Map" a few times (ca. 3x).<br />
+If you press [G] you can overlay a grid to see the tiles. 
+Press [P] do add a player. The standard field is Map1. If you want 
+to change the map, you can select it above.
 <br />
 <canvas id="game"></canvas>
 <audio id="music"></audio>

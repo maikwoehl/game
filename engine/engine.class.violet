@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.6.0_24" class="java.beans.XMLDecoder">
+<java version="1.7.0_15" class="java.beans.XMLDecoder">
  <object class="com.horstmann.violet.ClassDiagramGraph">
   <void method="addNode">
    <object class="com.horstmann.violet.ClassNode">
@@ -40,12 +40,10 @@ addGrid()
 initMap(string map)
 setMap(string map)
 getMap()
-loadMap(string map)
+loadMap()
 loadPlayer(object img, int posx, int posy)
-setPlayerPosX(int posx)
-setPlayerPosY(int posy)
-getPlayerPosX()
-gePlayerPosY()</string>
+setPlayerPos([int posx, int posy])
+getPlayerPos()</string>
      </void>
     </void>
     <void property="name">
@@ -54,10 +52,24 @@ gePlayerPosY()</string>
      </void>
     </void>
    </object>
-   <object class="java.awt.geom.Point2D$Double">
+   <object class="java.awt.geom.Point2D$Double" id="Point2D$Double0">
+    <void class="java.awt.geom.Point2D$Double" method="getField">
+     <string>x</string>
+     <void method="set">
+      <object idref="Point2D$Double0"/>
+      <double>295.0</double>
+     </void>
+    </void>
+    <void class="java.awt.geom.Point2D$Double" method="getField">
+     <string>y</string>
+     <void method="set">
+      <object idref="Point2D$Double0"/>
+      <double>157.0</double>
+     </void>
+    </void>
     <void method="setLocation">
-     <double>537.0</double>
-     <double>180.0</double>
+     <double>295.0</double>
+     <double>157.0</double>
     </void>
    </object>
   </void>

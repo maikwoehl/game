@@ -95,13 +95,28 @@ GameEngine.prototype = {
         return true;
     },
     renderAudio : function(audiofile, format) {
-        this.audio.setAttribute("src", audiofile);
-        this.audio.setAttribute("type", format);
+        for (var i = 0; i < audiofile.length; i++)
+        {
+            source = this.document.createElement("source");
+            source.setAttribute("src", audiofile[i]);
+            source.setAttribute("type", format[i]);
+            this.audio.appendChild(source);
+        }
+        
+        //this.audio.setAttribute("src", audiofile);
+        //this.audio.setAttribute("type", format);
         return true;
     },
     renderVideo: function(videofile,format) {
-    	this.video.setAttribute("src", videofile);
-    	this.video.setAttribute("type", format);
+        for (var i = 0; i < videofile.length; i++)
+        {
+            source = this.document.createElement("source");
+            source.setAttribute("src", videofile[i]);
+            source.setAttribute("type", format[i]);
+            this.video.appendChild(source);
+        }
+    	//this.video.setAttribute("src", videofile);
+    	//this.video.setAttribute("type", format);
     	return true;
     },
     writeText : function(text,font,color,size,posx,posy) {
@@ -176,13 +191,14 @@ GameEngine.prototype = {
     },
     setMap : function(map) {
     	this.currentMap = map;
-    	return true;
+    	return this;
     },
     getMap : function() {
     	return this.currentMap;
     },
-    loadMap : function(map) {
-    	switch(map) {
+    loadMap : function() {
+        //console.log(this.currentMap);
+    	switch(this.currentMap) {
     	case "map0":
     		generateMap0(this);
     		break;
@@ -193,7 +209,7 @@ GameEngine.prototype = {
     		generateMap1_2(this);
     		break;
     	}
-    	return true;
+    	return this;
     },
     loadPlayer : function(img,posx,posy) {
     	this.player_posx = posx;
@@ -203,20 +219,13 @@ GameEngine.prototype = {
     	context.drawImage(this.player,this.player_posx,this.player_posy);
     	return true;
     },
-    setPlayerPosX : function(posx) {
-    	this.player_posx = posx;
+    setPlayerPos : function(pos) {
+    	this.player_posx = pos[0];
+        this.player_posy = pos[1];
     	return true;
     },
-    setPlayerPosY : function(posy) {
-    	this.player_posy = posy;
-    	return true;
-    },
-    getPlayerPosX : function() {
-    	return this.player_posx;
+    getPlayerPos : function() {
+    	return [this.player_posx,this.player_posy];
     	
     },
-    getPlayerPosY : function() {
-    	return this.player_posy;
-    	
-    }
 };
